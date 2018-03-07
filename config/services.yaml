@@ -1,11 +1,5 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
-parameters:
-    rabbit_host: 'metricso_rabbit'
-    rabbit_port: '5672'
-    rabbit_user: 'guest'
-    rabbit_password: 'guest'
-
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -25,7 +19,7 @@ services:
     # please note that last definitions always *replace* previous ones
     App\Lib\Rabbit\RabbitConfig:
         arguments:
-          $host: '%rabbit_host%'
-          $port: '%rabbit_port%'
-          $user: '%rabbit_user%'
-          $password: '%rabbit_password%'
+          $host: '%env(RABBIT_HOST)%'
+          $port: '%env(RABBIT_PORT)%'
+          $user: '%env(RABBIT_USER)%'
+          $password: '%env(RABBIT_PASSWORD)%'

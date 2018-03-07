@@ -11,7 +11,7 @@ namespace App\Lib\File;
 
 use App\Lib\Exception\InvalidPathException;
 
-class FileListReader
+class FileListReader implements FileListReaderInterface
 {
     /**
      * @param string $path
@@ -27,10 +27,17 @@ class FileListReader
         foreach ($files as $key => $file) {
             if ($file == '.' || $file == '..') {
                 unset($files[$key]);
+            } else {
+                $files[$key] = $this->getFullPath($path, $file);
             }
         }
 
         return array_values($files);
+    }
+
+    private function getFullPath(string $path, string $filename): string
+    {
+        return $path . (substr($path, -1) == '/' ? '' : '/') . $filename;
     }
 
     /**

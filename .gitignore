@@ -4,5 +4,6 @@
 /public/bundles/
 /var/
 /vendor/
+/files/
 .idea
 ###< symfony/framework-bundle ###

@@ -37,7 +37,7 @@ class RabbitPublisher
         $this->publish($routingKey, $message);
     }
 
-    protected function publish($routingKey, JsonSerializable $message)
+    protected function publish(string $routingKey, JsonSerializable $message)
     {
         $amqpMessage = $this->createMessage($message);
         $this->channel->basic_publish($amqpMessage, $this->exchange->getName(), $routingKey);

@@ -10,7 +10,7 @@ namespace App\Lib\Communication;
 
 
 use App\Lib\Exception\InvalidPathException;
-use App\Lib\File\FileListReader;
+use App\Lib\File\FileListReaderInterface;
 use App\Lib\Rabbit\FileExchange;
 use App\Lib\Rabbit\FileMessage;
 use App\Lib\Rabbit\RabbitConnection;
@@ -21,7 +21,7 @@ class MessagePublisher
 {
 
     /**
-     * @var FileListReader
+     * @var FileListReaderInterface
      */
     private $fileListReader;
     /**
@@ -34,7 +34,7 @@ class MessagePublisher
      */
     private $publisher;
 
-    public function __construct(FileListReader $fileListReader, RabbitConnection $connection)
+    public function __construct(FileListReaderInterface $fileListReader, RabbitConnection $connection)
     {
         $this->fileListReader = $fileListReader;
         $this->connection = $connection;

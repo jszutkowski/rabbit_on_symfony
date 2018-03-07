@@ -29,7 +29,7 @@ class RabbitConnection
     /**
      * @return AMQPChannel
      */
-    public function getChannel()
+    public function getChannel(): AMQPChannel
     {
         if (!$this->channel)
         {

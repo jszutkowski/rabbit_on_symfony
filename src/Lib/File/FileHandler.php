@@ -11,7 +11,7 @@ namespace App\Lib\File;
 
 use App\Lib\Exception\FileNotFoundException;
 
-class FileHandler
+class FileHandler implements FileHandlerInterface
 {
 
     /**
@@ -31,7 +31,7 @@ class FileHandler
      */
     private function checkFile(string $filePath): void
     {
-        if (!file_exists($filePath) || !is_file($filePath)) {
+        if (!file_exists($filePath) || !is_file($filePath) || !is_writable($filePath)) {
             throw new FileNotFoundException('File does not exist');
         }
     }

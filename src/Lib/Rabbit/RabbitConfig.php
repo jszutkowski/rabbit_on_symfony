@@ -16,14 +16,7 @@ class RabbitConfig
     private $user;
     private $password;
 
-    /**
-     * RabbitConfig constructor.
-     * @param $host
-     * @param $port
-     * @param $user
-     * @param $password
-     */
-    public function __construct($host, $port, $user, $password)
+    public function __construct(string $host, string $port, string $user, string $password)
     {
         $this->host = $host;
         $this->port = $port;
@@ -34,7 +27,7 @@ class RabbitConfig
     /**
      * @return mixed
      */
-    public function getHost()
+    public function getHost(): string
     {
         return $this->host;
     }
@@ -42,7 +35,7 @@ class RabbitConfig
     /**
      * @return mixed
      */
-    public function getPort()
+    public function getPort(): string
     {
         return $this->port;
     }
@@ -50,7 +43,7 @@ class RabbitConfig
     /**
      * @return mixed
      */
-    public function getUser()
+    public function getUser(): string
     {
         return $this->user;
     }
@@ -58,7 +51,7 @@ class RabbitConfig
     /**
      * @return mixed
      */
-    public function getPassword()
+    public function getPassword(): string
     {
         return $this->password;
     }
